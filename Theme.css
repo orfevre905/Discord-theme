@@ -1,0 +1,199 @@
+/**
+ * Combined: Mei Misaki + Spotify Discord
+ */
+
+/* spotify import */
+@import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/source.css);
+
+/* mei import */
+@import url(https://nfld99.github.io/Better-Discord/Source_Code/Master_Code.css);
+
+/* =======================
+   MEI ROOT VARIABLES
+======================= */
+:root {
+  --Background-Colour: rgba(36,48,46,1);
+  --Secondary-Background-Colour: rgba(36,48,46);
+  --Secondary-Main-Colour: rgba(186,114,132);
+--Chat-Background: url(https://raw.githubusercontent.com/orfevre905/Discord-theme/main/cool.jpg);
+--Settings-Background: url(https://raw.githubusercontent.com/orfevre905/Discord-theme/main/cool.jpg);
+  --Theme-Variant: "Another Mei Misaki";
+  --load1: "Welcome to Discord";
+  --load2: "Please Enjoy";
+  --load3: "<3";
+  --Chat-Font-Used: "Whitney";
+  --Chat-Font-Size: 15px;
+  --Unread-Message-Speed: 1.5s;
+  --Background-Darkness: 0.5;
+
+  /* spotify overrides if both exist */
+  --app-background: transparent;
+  --app-foreground: transparent;
+  --card-color: transparent;
+}
+
+/* =======================
+   SPOTIFY VARIABLES
+======================= */
+:root {
+  --app-background: hsl(0,0%,0%);
+  --app-foreground: hsl(0,0%,7%);
+  --app-card-radius: 8px;
+  --app-card-margin: 8px;
+  --app-card-top-margin: 4px;
+  --app-card-border-color: hsl(0,0%,14%);
+  --app-bar-size: 80px;
+  --header-bar-height: 56px;
+  --header-bar-color: hsl(0,0%,13%);
+  --accent-hue: 141;
+  --accent-saturation: 72.9%;
+  --accent-lightness: 42%;
+  --accent-text-color: hsl(0,0%,6%);
+  --alert-hue: 0;
+  --alert-saturation: 85%;
+  --alert-lightness: 61%;
+  --alert-text-color: hsl(0,0%,0%);
+  --background-tinted-hover: transparent;
+  --background-tinted-active: transparent;
+  --background-tinted-highlight: transparent;
+  --background-tinted-dark: hsla(0,0%,0%);
+  --menu-text-color: hsl(0,0%,85%);
+  --menu-item-radius: 6px;
+  --card-color: hsl(0,0%,10%);
+  --card-color-hover: hsl(0,0%,14%);
+  --card-color-active: hsl(0,0%,22%);
+  --card-radius: 6px;
+  --card-border-color: hsl(0,0%,19%);
+  --button-height: 36px;
+  --button-padding: 0 18px;
+  --popout-color: hsl(0,0%,16%);
+  --popout-color-alt: hsl(0,0%,11%);
+  --popout-radius: 6px;
+  --popout-radius-big: 10px;
+  --input-height: 36px;
+  --input-padding: 0 12px;
+  --input-color: hsla(0,0%,100%);
+  --input-radius: 4px;
+  --input-border-color: hsl(0,0%,33%);
+  --input-text-color: hsl(0,0%,96%);
+  --input-placeholder-color: hsl(0,0%,71%);
+  --main-textarea-min-height: 48px;
+  --main-textarea-color: hsl(0,0%,14%);
+  --main-textarea-border-color: hsl(0,0%,20%);
+  --main-textarea-text-color: hsl(0,0%,60%);
+  --main-textarea-placeholder-color: hsl(0,0%,54%);
+  --main-textarea-typing-color: hsla(0,0%,7%);
+  --message-color-hover: transparent;
+  --slider-color: hsl(0,0%,70%);
+  --slider-background: hsl(0,0%,26%);
+  --scrollbar-width: 12px;
+  --scrollbar-color: hsl(0,0%,35%);
+  --scrollbar-hover-color: hsl(0,0%,49%);
+  --scrollbar-active-color: hsl(0,0%,58%);
+}
+
+/* =======================
+   BASE OVERRIDES
+======================= */
+
+body {
+  --app-background: transparent !important;
+  --app-foreground: transparent !important;
+  --card-color: transparent !important;
+}
+
+/* background cleanup */
+.appMount__51fd7,
+.bg__960e4,
+.wrapper_a7e7a8,
+.chat_f75fb0,
+.container__133bf {
+  background: transparent !important;
+}
+
+/* avatars */
+[class*=blobContainer],
+[class*=wrapperSimple],
+[class*=svg],
+foreignObject,
+img[class*="avatar"],
+.avatar_c19a55,
+.avatarDecoration_c19a55 {
+  border-radius: 50% !important;
+}
+
+rect[mask] {
+  rx: 999px !important;
+  ry: 999px !important;
+}
+
+/* message highlight kill (reply/mention) */
+.messageListItem__6e3bc.mentioned__7f5fb,
+.messageListItem__6e3bc.replying__7f5fb {
+  background: transparent !important;
+}
+
+.mentioned__7f5fb::before,
+.replying__7f5fb::before {
+  background: transparent !important;
+  opacity: 0 !important;
+}
+
+[class*="mentioned"],
+[class*="replying"] {
+  background: transparent !important;
+}
+
+/* remove spotify mask system on server icons */
+nav [class*="wrapper"],
+nav [class*="listItem"],
+nav [class*="guild"] {
+  mask: none !important;
+  -webkit-mask: none !important;
+  clip-path: none !important;
+}
+
+/* force circular crop at the last possible layer */
+nav foreignObject {
+  mask: none !important;
+  -webkit-mask: none !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* safety override for svg containers */
+nav svg {
+  overflow: visible !important;
+}
+
+/* remove ONLY mention background, keep left bar */
+[class*="mentioned"] {
+  background: transparent !important;
+}
+
+/* kill spotify/message container tint */
+li[id^="chat-messages-"] {
+  background: transparent !important;
+}
+
+/* extra layer discord sometimes uses */
+.messageListItem__6e3bc {
+  background: transparent !important;
+}
+
+.header_f37cb1{
+  background-color: transparent !important;
+}
+
+.progressContainer__0d0f9{
+  background-color: transparent !important;
+}
+
+.channelTextArea_f75fb0{
+  background-color: black !important;
+}
+
+.buttons__74017{
+  color: transparent !important;
+}
+
